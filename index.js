@@ -39,7 +39,7 @@ try {
         process_data(data);
     }, 60000).then(() => {
         console.log(`${event} - Monitoring Spot User Order Data for binance.com`);
-        sendMessage(`<b>Binance Spot Order Monitor Started</b>\nthis message shows that you or heroku(if your are using) restart the bot.`)
+        sendMessage(`<b>Binance test lio </b>\nthis message shows that you or heroku(if your are using) restart the bot.`)
     })
 } catch (err) {
     console.error(`${event} - ${err}`)
