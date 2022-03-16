@@ -39,7 +39,7 @@ try {
         process_data(data);
     }, 60000).then(() => {
         console.log(`${event} - Monitoring Spot User Order Data for binance.com`);
-        sendMessage(`<b>Binance test lio </b>\nthis message shows that you or heroku(if your are using) restart the bot.`)
+        sendMessage(`<b>Bot Binance Traduit par le Collectif Crypto </b>\n Le robot et bien configuré !.`)
     })
 } catch (err) {
     console.error(`${event} - ${err}`)
@@ -90,31 +90,31 @@ function process_data(data) {
         if (executionType === 'NEW') {
             if (orderStatus === 'NEW') {
                 if (orderType === "MARKET") {
-                    txt = `✅ ✅ ✅\n<b>Spot ${orderType} ${side} Order CREATED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Quantity:</b>  ${fixFloat(quantity)}\n<b>Order ID:</b>  #ID${orderId}`
+                    txt = `Silver Mirror\n✅ ✅ ✅\n<b>Spot ${orderType} ${side} Ordre d'achat CREE</b>\n<b>Token:</b>  #${symbol}\n<b>Total:</b>  ${fixFloat(quantity)}\n<b>Ordre ID:</b>  #ID${orderId}`
                 }else {
-                    txt = `✅ ✅ ✅\n<b>Spot ${orderType} ${side} Order CREATED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${price}\n<b>Quantity:</b>  ${fixFloat(quantity)}${total}\n<b>Order ID:</b>  #ID${orderId}`
+                    txt = `Silver Mirror\n✅ ✅ ✅\n<b>Spot ${orderType} ${side} Ordre d'achat CREE</b>\n<b>Token:</b>  #${symbol}\n<b>Prix:</b>  ${price}\n<b>Montant:</b>  ${fixFloat(quantity)}${total}\n<b>Order ID:</b>  #ID${orderId}`
                 }
             } else if (orderStatus === 'REJECTED') {
                 if (orderType === "MARKET") {
-                    txt = `🚫 🚫 🚫\n<b>Spot ${orderType} ${side} Order REJECTED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Quantity:</b>  ${fixFloat(quantity)}\n<b>Order ID:</b>  #ID${orderId}\n<b>Order reject reason:</b>  #ID${Order_reject_reason}`
+                    txt = `Silver Mirror\n🚫 🚫 🚫\n<b>Spot ${orderType} ${side} Order REJECTED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Quantity:</b>  ${fixFloat(quantity)}\n<b>Order ID:</b>  #ID${orderId}\n<b>Order reject reason:</b>  #ID${Order_reject_reason}`
                 }else {
-                    txt = `🚫 🚫 🚫\n<b>Spot ${orderType} ${side} Order REJECTED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${price}\n<b>Quantity:</b>  ${fixFloat(quantity)}${total}\n<b>Order ID:</b>  #ID${orderId}\n<b>Order reject reason:</b>  #ID${Order_reject_reason}`
+                    txt = `Silver Mirror\n🚫 🚫 🚫\n<b>Spot ${orderType} ${side} Order REJECTED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${price}\n<b>Quantity:</b>  ${fixFloat(quantity)}${total}\n<b>Order ID:</b>  #ID${orderId}\n<b>Order reject reason:</b>  #ID${Order_reject_reason}`
                 }
             }
         } else if (executionType === 'CANCELED') {
             if (orderStatus === 'CANCELED') {
-                txt = `❎ ❎ ❎\n<b>Spot ${orderType} ${side} Order CANCELED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${price}\n<b>Quantity:</b>  ${fixFloat(quantity)}${total}\n<b>Order ID:</b>  #ID${orderId}`
+                txt = `Silver Mirror\n❎ ❎ ❎\n<b>Spot ${orderType} ${side} Order CANCELED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${price}\n<b>Quantity:</b>  ${fixFloat(quantity)}${total}\n<b>Order ID:</b>  #ID${orderId}`
             }
         } else if (executionType === 'TRADE') {
             if (orderStatus === 'PARTIALLY_FILLED') {
-                txt = `⌛ ⌛ ⌛\n<b>Spot ${orderType} ${side} Order PARTIALLY FILLED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${Last_price}\n<b>Last Filled:</b>  ${fixFloat(lastTradeQuantity)}\n<b>Total Filled:</b>  ${fixFloat(Cumulative_filled_quantity)}\n<b>Remaining:</b>  ${fixFloat(Number(quantity) - Number(Cumulative_filled_quantity))}\n<b>Order ID:</b>  #ID${orderId}`
+                txt = `Silver Mirror\n⌛ ⌛ ⌛\n<b>Spot ${orderType} ${side} Order PARTIALLY FILLED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${Last_price}\n<b>Last Filled:</b>  ${fixFloat(lastTradeQuantity)}\n<b>Total Filled:</b>  ${fixFloat(Cumulative_filled_quantity)}\n<b>Remaining:</b>  ${fixFloat(Number(quantity) - Number(Cumulative_filled_quantity))}\n<b>Order ID:</b>  #ID${orderId}`
             } else if (orderStatus === 'FILLED') {
-                txt = `💰 💰 💰\n<b>Spot ${orderType} ${side} Order FULLY FILLED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${Last_price}\n<b>Filled:</b>  ${fixFloat(Cumulative_filled_quantity)}${total}\n<b>Order ID:</b>  #ID${orderId}`
+                txt = `Silver Mirror\n💰 💰 💰\n<b>Spot ${orderType} ${side} Order FULLY FILLED</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${Last_price}\n<b>Filled:</b>  ${fixFloat(Cumulative_filled_quantity)}${total}\n<b>Order ID:</b>  #ID${orderId}`
             }
         } else if (['REPLACED', 'EXPIRED', 'PENDING_CANCEL'].includes(orderStatus)) {
-            txt = `🔴 🟡 🔵\n<b>Spot ${orderType} ${side} Order ${orderStatus}</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${price}\n<b>Quantity:</b>  ${fixFloat(quantity)}${total}\n<b>Order ID:</b>  #ID${orderId}`
+            txt = `Silver Mirror\n🔴 🟡 🔵\n<b>Spot ${orderType} ${side} Order ${orderStatus}</b>\n<b>Symbol:</b>  #${symbol}\n<b>Price:</b>  ${price}\n<b>Quantity:</b>  ${fixFloat(quantity)}${total}\n<b>Order ID:</b>  #ID${orderId}`
         } else {
-            txt = `⚠️ ⚠️⚠️\n<b>Undefined</b>\nExecution Type:  ${executionType}\nOrder Status ${orderStatus}\nFull Details:\n${data}`
+            txt = `Silver Mirror\n⚠️ ⚠️⚠️\n<b>Undefined</b>\nExecution Type:  ${executionType}\nOrder Status ${orderStatus}\nFull Details:\n${data}`
         }
         sendMessage(txt)
     }
