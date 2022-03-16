@@ -90,31 +90,31 @@ function process_data(data) {
         if (executionType === 'NEW') {
             if (orderStatus === 'NEW') {
                 if (orderType === "MARKET") {
-                    txt = `<b>🔥Silver Mirror🔥</b>\n✅ ✅ ✅\n<b>Spot ${orderType} ${side}\nOrdre CRÉÉ</b>\n<b>Token:</b>  #${symbol}\n<b>Total:</b>  ${fixFloat(quantity)}\n<b>Ordre ID:</b>  #ID${orderId}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
+                    txt = `<b>🔥Silver Mirror🔥</b>\n\n   ✅ ✅ ✅\n<b>Spot ${orderType} ${side}\nOrdre CRÉÉ</b>\n<b>Token:</b>  #${symbol}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
                 }else {
-                    txt = `<b>🔥Silver Mirror🔥</b>\n✅ ✅ ✅\n<b>Spot ${orderType} ${side}\nOrdre CRÉÉ</b>\n<b>Token:</b>  #${symbol}\n<b>Prix:</b>  ${price}\n<b>Montant:</b>  ${fixFloat(quantity)}${total}\n<b>Ordre ID:</b>  #ID${orderId}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
+                    txt = `<b>🔥Silver Mirror🔥</b>\n\n   ✅ ✅ ✅\n<b>Spot ${orderType} ${side}\nOrdre CRÉÉ</b>\n<b>Token:</b>  #${symbol}\n<b>Prix:</b>  ${price}\n<b>Montant:</b>  ${fixFloat(quantity)}${total}\n<b>Ordre ID:</b>  #ID${orderId}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
                 }
             } else if (orderStatus === 'REJECTED') {
                 if (orderType === "MARKET") {
-                    txt = `<b>🔥Silver Mirror🔥</b>\n🚫 🚫 🚫\n<b>Spot ${orderType} ${side}\nOrdre REJETÉ</b>\n<b>Token:</b>  #${symbol}\n<b>Montant:</b>  ${fixFloat(quantity)}\n<b>Ordre ID:</b>  #ID${orderId}\n<b>Motif du rejet de l'ordre:</b>  #ID${Order_reject_reason}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
+                    txt = `<b>🔥Silver Mirror🔥</b>\n\n   🚫 🚫 🚫\n<b>Spot ${orderType} ${side}\nOrdre REJETÉ</b>\n<b>Token:</b>  #${symbol}\n<b>Motif du rejet de l'ordre:</b>  #ID${Order_reject_reason}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
                 }else {
-                    txt = `<b>🔥Silver Mirror🔥</b>\n🚫 🚫 🚫\n<b>Spot ${orderType} ${side}\nOrdre REJETÉ</b>\n<b>Token:</b>  #${symbol}\n<b>Prix:</b>  ${price}\n<b>Montant:</b>  ${fixFloat(quantity)}${total}\n<b>Ordre ID:</b>  #ID${orderId}\n<b>Motif du rejet de l'ordre:</b>  #ID${Order_reject_reason}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
+                    txt = `<b>🔥Silver Mirror🔥</b>\n\n   🚫 🚫 🚫\n<b>Spot ${orderType} ${side}\nOrdre REJETÉ</b>\n<b>Token:</b>  #${symbol}\n<b>Motif du rejet de l'ordre:</b>  #ID${Order_reject_reason}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
                 }
             }
         } else if (executionType === 'CANCELED') {
             if (orderStatus === 'CANCELED') {
-                txt = `<b>🔥Silver Mirror🔥</b>\n❎ ❎ ❎\n<b>Spot ${orderType} ${side}\nOrdre ANNULÉ</b>\n<b>Symbol:</b>  #${symbol}\n<b>Prix:</b>  ${price}\n<b>Montant:</b>  ${fixFloat(quantity)}${total}\n<b>Ordre ID:</b>  #ID${orderId}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
+                txt = `<b>🔥Silver Mirror🔥</b>\n\n   ❎ ❎ ❎\n<b>Spot ${orderType} ${side}\nOrdre ANNULÉ</b>\n<b>Symbol:</b>  #${symbol}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
             }
         } else if (executionType === 'TRADE') {
             if (orderStatus === 'PARTIALLY_FILLED') {
-                txt = `<b>🔥Silver Mirror🔥</b>\n⌛ ⌛ ⌛\n<b>Spot ${orderType} ${side}\nOrdre PARTIELLEMENT REMPLI</b>\n<b>Token:</b>  #${symbol}\n<b>Prix:</b>  ${Last_price}\n<b>Dernier rempli:</b>  ${fixFloat(lastTradeQuantity)}\n<b>Total Rempli:</b>  ${fixFloat(Cumulative_filled_quantity)}\n<b>Restant:</b>  ${fixFloat(Number(quantity) - Number(Cumulative_filled_quantity))}\n<b>Ordre ID:</b>  #ID${orderId}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
+                txt = `<b>🔥Silver Mirror🔥</b>\n\n   ⌛ ⌛ ⌛\n<b>Spot ${orderType} ${side}\nOrdre PARTIELLEMENT REMPLI</b>\n<b>Token:</b>  #${symbol}\n<b>Dernier rempli:</b>  ${fixFloat(lastTradeQuantity)}\n<b>Total Rempli:</b>  ${fixFloat(Cumulative_filled_quantity)}\n<b>Restant:</b>  ${fixFloat(Number(quantity) - Number(Cumulative_filled_quantity))}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
             } else if (orderStatus === 'FILLED') {
-                txt = `<b>🔥Silver Mirror🔥</b>\n💰 💰 💰\n<b>Spot ${orderType} ${side}\nOrdre ENTIEREMENT REMPLI</b>\n<b>Token:</b>  #${symbol}\n<b>Prix:</b>  ${Last_price}\n<b>Rempli:</b>  ${fixFloat(Cumulative_filled_quantity)}${total}\n<b>Ordre ID:</b>  #ID${orderId}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
+                txt = `<b>🔥Silver Mirror🔥</b>\n\n   💰 💰 💰\n<b>Spot ${orderType} ${side}\nOrdre ENTIEREMENT REMPLI</b>\n<b>Token:</b>  #${symbol}\n<b>Rempli:</b>  ${fixFloat(Cumulative_filled_quantity)}${total}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
             }
         } else if (['REPLACED', 'EXPIRED', 'PENDING_CANCEL'].includes(orderStatus)) {
-            txt = `<b>🔥Silver Mirror🔥</b>\n🔴 🟡 🔵\n<b>Spot ${orderType} ${side}\nOrdre ${orderStatus}</b>\n<b>Token:</b>  #${symbol}\n<b>Prix:</b>  ${price}\n<b>Total:</b>  ${fixFloat(quantity)}${total}\n<b>Ordre ID:</b>  #ID${orderId}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
+            txt = `<b>🔥Silver Mirror🔥</b>\n\n   🔴 🟡 🔵\n<b>Spot ${orderType} ${side}\nOrdre ${orderStatus}</b>\n<b>Token:</b>  #${symbol}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
         } else {
-            txt = `<b>🔥Silver Mirror🔥</b>\n⚠️ ⚠️ ⚠️\n<b>Indéfini</b>\nType d'exécution:  ${executionType}\nOrdre Status ${orderStatus}\n Tous les détails:\n${data}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
+            txt = `<b>🔥Silver Mirror🔥</b>\n\n   ⚠️ ⚠️ ⚠️\n<b>Indéfini</b>\nType d'exécution:  ${executionType}\nOrdre Status ${orderStatus}\n Tous les détails:\n${data}\n\n<a href="https://lecollectif-crypto.fr/">🤩Le Collectif Crypto🤩</a>`
         }
         sendMessage(txt)
     }
@@ -128,7 +128,7 @@ function sendMessage(text) {
         parse_mode: 'html'
     };
     let options = {
-        uri: 'https://api.telegram.org/bot' + token + '/' + 'sendMessage',
+        uri: 'https://api.telegram.org/bot' + token + '/' + 'sendMessage' + '&disable_web_page_preview=True',
         qs: params,
         simple: false,
         resolveWithFullResponse: true,
